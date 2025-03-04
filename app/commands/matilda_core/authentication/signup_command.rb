@@ -71,6 +71,12 @@ module MatildaCore
           err('La password deve contenere almeno: 1 lettera maiuscola, 1 numero ed 1 simbolo', code: :invalid_password)
           break
         end
+
+        # Verifico che la password sia lunga almeno 8 caratteri
+        if params[:password].length < 8
+          err('La password deve essere lunga almeno 8 caratteri', code: :invalid_password_length)
+          break
+        end
       end
 
       to_validate_logic do
