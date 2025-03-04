@@ -53,6 +53,18 @@ module MatildaCore
           err('Le due password non coincidono', code: :password_confirmation)
           break
         end
+
+        # verifico che la password non sia uguale al nome o al cognome
+        if params[:password] == params[:name] || params[:password] == params[:surname]
+          err('La password non può essere uguale al nome o al cognome', code: :password)
+          break
+        end
+
+        # verifico che il nome e il cognome non contengano parole vietate
+        if params[:name].in?(MatildaCore::User::FORBIDDEN_NAMES) || params[:surname].in?(MatildaCore::User::FORBIDDEN_NAMES)
+          err('Il nome ed il cognome non possono contenere le seguenti parole: Admin, Service, Demo', code: :invalid_name_or_surname)
+          break
+        end
       end
 
       to_validate_logic do
