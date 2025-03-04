@@ -67,7 +67,7 @@ module MatildaCore
         end
 
         # Verifico che la password rispetti il regex
-        if params[:password].match?(MatildaCore::User::PASSWORD_REGEX)
+        unless params[:password].match?(MatildaCore::User::PASSWORD_REGEX)
           err('La password deve contenere almeno: 1 lettera maiuscola, 1 numero ed 1 simbolo', code: :invalid_password)
           break
         end
