@@ -31,11 +31,11 @@ module MatildaCore
 
       validates :password,
                 presence: true, type: :string, blank: false,
-                err: 'Password non valida' # TODO: Aggiungere Regex password.
+                err: 'Password non valida'
 
       validates :password_confirmation,
                 presence: true, type: :string, blank: false,
-                err: 'Password non valida' # TODO: Aggiungere Regex password.
+                err: 'Password non valida'
 
       validates :privacy, type: :string
 
@@ -63,6 +63,12 @@ module MatildaCore
         # verifico che il nome e il cognome non contengano parole vietate
         if params[:name].in?(MatildaCore::User::FORBIDDEN_NAMES) || params[:surname].in?(MatildaCore::User::FORBIDDEN_NAMES)
           err('Il nome ed il cognome non possono contenere le seguenti parole: Admin, Service, Demo', code: :invalid_name_or_surname)
+          break
+        end
+
+        # Verifico che la password rispetti il regex
+        if params[:password].in?(MatildaCore::User::PASSWORD_REGEX)
+          err('La password deve contenere almeno: 1 lettera maiuscola, 1 numero ed 1 simbolo', code: :invalid_password)
           break
         end
       end
