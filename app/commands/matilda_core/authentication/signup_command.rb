@@ -62,6 +62,8 @@ module MatildaCore
 
          # Verifico che il nome e il cognome non contengano parole vietate
          forbidden_names = Setting.first&.forbidden_names || []
+         puts 'HSADIOHASIHDIOASHIODHASIOHDOIAHSDOAS'
+         puts forbidden_names
          if forbidden_names.any? { |name| params[:name].downcase.include?(name.downcase) || params[:surname].downcase.include?(name.downcase) }
            err('Il nome ed il cognome non possono contenere parole vietate', code: :invalid_name_or_surname)
            break
