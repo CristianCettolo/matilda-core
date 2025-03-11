@@ -60,11 +60,12 @@ module MatildaCore
           break
         end
 
-        # verifico che il nome e il cognome non contengano parole vietate
-        if params[:name].in?(MatildaCore::User::FORBIDDEN_NAMES) || params[:surname].in?(MatildaCore::User::FORBIDDEN_NAMES)
-          err('Il nome ed il cognome non possono contenere le seguenti parole: Admin, Service, Demo', code: :invalid_name_or_surname)
-          break
-        end
+         # Verifico che il nome e il cognome non contengano parole vietate
+         forbidden_names = Setting.first&.forbidden_names || []
+         if forbidden_names.any? { |name| params[:name].downcase.include?(name.downcase) || params[:surname].downcase.include?(name.downcase) }
+           err('Il nome ed il cognome non possono contenere parole vietate', code: :invalid_name_or_surname)
+           break
+         end
 
         # Verifico che la password rispetti il regex
         unless params[:password].match?(MatildaCore::User::PASSWORD_REGEX)
