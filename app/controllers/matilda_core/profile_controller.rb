@@ -56,7 +56,7 @@ module MatildaCore
     private
 
     def generate_edit_info_command
-      command_params = params.permit(:name, :surname)
+      command_params = params.permit(:name, :surname, :mask_sensitive_data)
       command_params[:user_uuid] = @session.user_uuid
       command_params[:log_who] = @session.user_uuid
       MatildaCore::Profile::EditInfoCommand.new(command_params)
