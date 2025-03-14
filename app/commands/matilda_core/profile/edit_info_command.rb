@@ -18,8 +18,6 @@ module MatildaCore
       validates :surname,
                 presence: true, type: :string, blank: false,
                 err: I18n.t('matilda_core.messages.surname_not_valid')
-
-      validates :mask_sensitive_data, type: :boolean
                 
       validates :log_who, type: :string
 
@@ -32,11 +30,14 @@ module MatildaCore
       end
 
       to_initialize_events do
+        # Converto il valore di mask_sensitive_data in un booleano prima di passarlo all'evento
+        mask_value = params[:mask_sensitive_data] == '1' || params[:mask_sensitive_data] == true
+        
         event = MatildaCore::Users::EditInfoEvent.new(
           user_uuid: params[:user_uuid],
           name: params[:name],
           surname: params[:surname],
-          mask_sensitive_data: params[:mask_sensitive_data],
+          mask_sensitive_data: mask_value,
           log_who: params[:log_who]
         )
         internal_error && break unless event.saved?
