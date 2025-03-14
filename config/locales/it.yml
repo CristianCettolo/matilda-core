@@ -47,6 +47,7 @@ it:
       new_password_confirmation: Conferma nuova Password
       current_password: Attuale Password
       role: Ruolo
+      mask_sensitive_data: Nascondi i dati sensibili
     titles: # titoli di pagine, cards ecc.
       select_a_group: Seleziona gruppo
       create_a_group: Creazione gruppo

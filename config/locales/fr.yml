@@ -47,6 +47,7 @@ fr:
       new_password_confirmation: Confirm the new password
       current_password: Current password
       role: Role
+      mask_sensitive_data: Mask sensitive data
     titles:
       select_a_group: Select a group
       create_a_group: Create a group
