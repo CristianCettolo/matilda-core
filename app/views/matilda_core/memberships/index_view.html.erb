@@ -27,6 +27,7 @@
                 <tr>
                   <th><%= I18n.t 'matilda_core.labels.name' %></th>
                   <th class="c-table__col-not-imp"><%= I18n.t 'matilda_core.labels.username' %></th>
+                  <th class="c-table__col-not-imp"><%= I18n.t 'matilda_core.labels.email' %></th>
                   <th></th>
                 </tr>
               </thead>
@@ -35,7 +36,7 @@
                   <tr>
                     <td><%= user.complete_name %></td>
                     <td class="c-table__col-not-imp">@<%= user.username %></td>
-                    <td class="c-table__col-not-imp">@<%= user.email %></td>
+                    <td class="c-table__col-not-imp"><%= user.email %></td>
                     <td class="c-table__actions">
                       <a class="c-button" data-tippy-content="<%= I18n.t 'matilda_core.cta.manage' %>" data-controller="tippy" href="<%= matilda_core.memberships_manage_view_path(user_uuid: user.uuid) %>">
                         <i class="fas fa-edit"></i>
