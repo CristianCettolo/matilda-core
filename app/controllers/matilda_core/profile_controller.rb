@@ -52,6 +52,43 @@ module MatildaCore
 
       render_json_success({})
     end
+    
+    def edit_units_system_action
+      # Recupero il parametro dal form
+      units_system = params[:units_system]
+      
+      # Verifico che l'utente esista
+      user = MatildaCore::User.find_by(uuid: @session.user_uuid)
+      unless user
+        render_json_error('User not found')
+        return
+      end
+      
+      # Verifico che il sistema di unità sia valido
+      unless MatildaCore::User::UNITS_SYSTEMS.include?(units_system)
+        render_json_error('Invalid units system')
+        return
+      end
+      
+      # Aggiorno il sistema di unità dell'utente
+      result = user.update(units_system: units_system)
+      
+      unless result
+        render_json_error(user.errors.full_messages.join(', '))
+        return
+      end
+      
+      # Registro l'operazione nei log
+      log_info = { 
+        units_system: units_system,
+        uuid: user.uuid, 
+        username: user.username 
+      }
+      MatildaCore::Log.log_action(log_who: @session.user_uuid, action: 'user.edit.units_system', info: log_info)
+      
+      # Ritorno un successo
+      render_json_success({})
+    end
 
     private
 
