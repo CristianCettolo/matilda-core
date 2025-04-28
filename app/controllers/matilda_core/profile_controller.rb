@@ -84,7 +84,6 @@ module MatildaCore
         uuid: user.uuid, 
         username: user.username 
       }
-      MatildaCore::Log.log_action(log_who: @session.user_uuid, action: 'user.edit.units_system', info: log_info)
       
       # Ritorno un successo
       render_json_success({})
