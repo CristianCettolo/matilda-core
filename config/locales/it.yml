@@ -91,6 +91,7 @@ it:
       user_not_valid: Utente non valido
       groups_creation_unpermitted: I gruppi non possono essere registrati
       groups_max_number_per_user: Hai raggiunto il numero massimo di gruppi disponibili
+      email_not_verified: L'indirizzo Email non è stato verificato. Per favore verifica l'indirizzo Email prima di procedere.
     strings: # altre stringhe varie utilizzate.
       no_data_found_title: Nessun dato trovato
       no_data_found_content: Non ci sono dati presenti nel sistema

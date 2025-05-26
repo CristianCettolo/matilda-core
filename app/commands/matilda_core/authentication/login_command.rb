@@ -44,6 +44,11 @@ module MatildaCore
           break
         end
 
+        unless user.email_verified?
+          err(I18n.t('matilda_core.messages.email_not_verified'), code: :email)
+          break
+        end
+
         @user_uuid = user.uuid
       end
 
