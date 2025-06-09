@@ -1,4 +1,5 @@
 <header class="c-header" data-controller="header">
+  <div class="c-container c-header__container">
   <a href="<%= matilda_core.root_path %>" class="c-header__logo">
     <% if MatildaCore.config.global_logo %>
       <img class="c-header__logo-img" src="<%= MatildaCore.config.global_logo %>" alt="<%= MatildaCore.config.global_title %>" />
@@ -72,5 +73,5 @@
       </div>
     <% end %>
   </nav>
-
+  </div>
 </header>
