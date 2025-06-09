@@ -35,13 +35,16 @@
   &-backtext {
     color: $color_white;
     font-size: 20px;
+    text-decoration: none;
   }
 
   &-back {
     font-size: 25px;
     color: $color_white;
-    margin-right: 15px;
-    display: block;
+    i {
+      margin-right: 15px;
+    }
+    display: flex;
   }
 }
 
