@@ -15,7 +15,7 @@
 .c-section__head {
   border-bottom: solid 1px darken($color_cenere, 5%);
   padding: 20px 0;
-  height: 60px;
+  height: 62px;
 
   &-container {
     display: flex; justify-content: flex-start; align-items: center;
@@ -28,7 +28,7 @@
     transform: translate(-50%, -50%);
     display: inline-block;
     margin: 0;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   &-backtext {
