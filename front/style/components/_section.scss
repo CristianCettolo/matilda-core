@@ -2,10 +2,9 @@
   width: calc(100% - #{$size_sidebar_width});
   min-height: calc(100vh - 50px);
   margin-left: $size_sidebar_width;
-  padding: 15px;
   transition: all 0.3s;
   position: relative;
-  padding-top: 65px;
+  padding-top: 85px;
 
   &--full {
     width: 100%;
@@ -15,10 +14,17 @@
 
 .c-section__head {
   border-bottom: solid 1px darken($color_cenere, 5%);
-  padding-bottom: 5px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 20px 0;
+
+  &-container {
+    display: flex; justify-content: flex-start; align-items: center;
+    position: relative;
+  }
+
+  &-title {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .c-section__head-back {
