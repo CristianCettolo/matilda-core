@@ -3,7 +3,7 @@
 <div class="c-section__content c-grid__container-spaced">
   <div class="c-container c-content">
     <%= render partial: 'panel/helpers/content-header', locals: { 
-      path: { url: matilda_core.memberships_index_view_path, label: I18n.t('matilda_core.cta.invite') }, 
+      path: { url: matilda_core.memberships_invitation_view_path, label: I18n.t('matilda_core.cta.invite') }, 
       search: I18n.t('matilda_core.helps.search_something'),
     }%>
     <div class="c-content__body">
@@ -23,7 +23,7 @@
                 <% @users.each do |user| %>
                   <tr>
                     <td><%= user.complete_name %></td>
-                    <td class="c-table__col-not-imp">@<%= user.username %></td>
+                    <td class="c-table__col-not-imp">@<%= user.username.truncate(25) %></td>
                     <td class="c-table__col-not-imp"><%= user.email %></td>
                     <td class="c-table__actions">
                       <a class="c-button" data-tippy-content="<%= I18n.t 'matilda_core.cta.manage' %>" data-controller="tippy" href="<%= matilda_core.memberships_manage_view_path(user_uuid: user.uuid) %>">
