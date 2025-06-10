@@ -1,25 +1,13 @@
 <form method="get">
 
 <div class="c-section__content c-grid__container-spaced">
-  <div class="c-section__content-block c-grid__col c-grid__col--24">
-    <div class="c-card">
-      <div class="c-card__header">
-        <div class="c-card__header-title">
-          <%= I18n.t 'matilda_core.titles.users_list' %>
-        </div>
-        <ul class="c-card__header-actions">
-          <li class="c-card__header-action">
-            <a class="c-button" href="<%= matilda_core.memberships_index_view_path %>"><%= I18n.t 'matilda_core.cta.invite' %></a>
-          </li>
-          <li class="c-card__header-action">
-            <div class="c-input-action">
-              <input class="c-input-action__field" name="s" placeholder="<%= I18n.t 'matilda_core.helps.search_something' %>" value="<%= params[:s] %>">
-              <button class="c-input-action__button" type="submit"><i class="fas fa-search"></i></button>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="c-card__body">
+  <div class="c-container c-content">
+    <%= render partial: 'panel/helpers/content-header', locals: { 
+      path: { url: matilda_core.memberships_index_view_path, label: I18n.t('matilda_core.cta.invite') }, 
+      search: I18n.t('matilda_core.helps.search_something'),
+    }%>
+    <div class="c-content__body">
+      <div class="c-content__title"><%= I18n.t('matilda_core.titles.users_list') %></div>
         <% if @users.length.positive? %>
           <div class="c-table__responsive">
             <table class="c-table">
@@ -68,8 +56,8 @@
             </div>
           <% end %>
         <% end %>
-      </div>
     </div>
+  
   </div>
 </div>
 
