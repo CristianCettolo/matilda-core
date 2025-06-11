@@ -13,7 +13,7 @@ module MatildaCore
 
     def index_view
       sidebar_set('matilda_core.memberships')
-      section_head_set(I18n.t('matilda_core.titles.users'), [{ label: I18n.t('matilda_core.titles.users') }])
+      section_head_set(I18n.t('matilda_core.titles.users'), matilda_core.root_path)
 
       @users = @session.group.users
       @users = @users.where('lower(name) LIKE ? OR lower(surname) LIKE ?', "%#{params[:s].downcase}%", "%#{params[:s].downcase}%") unless params[:s].blank?
@@ -22,7 +22,7 @@ module MatildaCore
 
     def invitation_view
       sidebar_set('matilda_core.memberships')
-      section_head_set(I18n.t('matilda_core.titles.invite_user'), [{ label: I18n.t('matilda_core.titles.users'), url: matilda_core.memberships_index_view_path }, { label: I18n.t('matilda_core.titles.invite_user') }])
+      section_head_set(I18n.t('matilda_core.titles.invite_user'), matilda_core.memberships_index_view_path)
     end
 
     def manage_view
