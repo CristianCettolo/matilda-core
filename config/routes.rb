@@ -41,6 +41,7 @@ MatildaCore::Engine.routes.draw do
 
   # memberships
   get 'memberships/index-view', to: 'memberships#index_view', as: 'memberships_index_view'
+  get '/memberships/show-view', to: 'memberships#show_view', as: 'memberships_show_view'
   get 'memberships/invitation-view', to: 'memberships#invitation_view', as: 'memberships_invitation_view'
   get 'memberships/manage-view', to: 'memberships#manage_view', as: 'memberships_manage_view'
   post 'memberships/invitation-action', to: 'memberships#invitation_action', as: 'memberships_invitation_action'
