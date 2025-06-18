@@ -1,7 +1,7 @@
 // Fonts
 // //////////////////////////////////////////
 
-@import url('https://fonts.googleapis.com/css?family=Alata');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 $font_default: 'Alata';
 
@@ -17,16 +17,22 @@ $breakpoint_lg: 1281px;
 // //////////////////////////////////////////
 
 $color_white: #ffffff;
-$color_black: #353b48;
-$color_cenere: #e8ebf1;
-$color_primary: #273c75;
-$color_blue: #0097e6;
-$color_green: #44bd32;
-$color_yellow: #e1b12c;
-$color_orange: #c23616;
+$color_primary: #000000;
+$color_gray: #757575;
+$color_cenere: #D8D8D8;
+$color_black: #222222;
+$color_blue: #00AEE3;
+$color_green: #54B64E;
+$color_yellow: #FEC542;
+$color_orange: #E30613;
+
+$color_twitter: #55acee;
+$color_linkedin: #007bb6;
+$color_toggl: #e20505;
+$color_dropbox: #005ff8;
 
 // Sizes
 // //////////////////////////////////////////
 
 $size_header_height: 50px;
-$size_sidebar_width: 200px;
+$size_sidebar_width: 250px;

@@ -1,0 +1,32 @@
+.c-table {
+    width: 100%;
+    thead, thead tr {
+        background-color: rgba($color_gray, .2);
+    }
+    tr {
+        border: 1px solid $color_black;
+        transition: .2s ease;
+        &:nth-child(2n) {
+            background-color: rgba($color_cenere, .5);
+        }
+    }
+    th, td {
+        padding: 25px 45px;
+        font-size: 18px;
+        border: none;
+    }
+    tbody tr {
+        &:hover {
+            background-color: rgba($color_white, .5);
+        }
+    }
+    &__actions {
+        text-align: left !important;
+        div {
+            display: flex; align-items: center;
+            .button-icon {
+                margin-right: 60px;
+            }
+        }
+    }
+}
