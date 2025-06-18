@@ -1,13 +1,13 @@
 .c-table {
     width: 100%;
+    border-collapse: collapse;
     thead, thead tr {
         background-color: rgba($color_gray, .2);
     }
     tr {
         border: 1px solid $color_black;
-        transition: .2s ease;
         &:nth-child(2n) {
-            background-color: rgba($color_cenere, .5);
+            background-color: rgba($color_cenere, .2);
         }
     }
     th, td {
