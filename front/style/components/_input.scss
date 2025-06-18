@@ -28,6 +28,7 @@
 .c-input-checkbox {
     width: 80%;
     margin-bottom: 30px;
+    display: flex; align-items: center;
     &__label {
         padding-left: 45px;
         font-size: 18px;
@@ -35,5 +36,8 @@
         &::before, &::after {
             width: 25px; height: 25px;
         }
+    }
+    &__field {
+        width: 25px; height: 25px;
     }
 }
