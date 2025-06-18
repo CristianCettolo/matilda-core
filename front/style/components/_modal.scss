@@ -33,7 +33,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 600px;
+  min-width: 70%;
   transition: all 0.3s ease-out 0.1s;
   opacity: 0;
   transform: translate(-50%, 50%);
