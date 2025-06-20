@@ -13,7 +13,7 @@
     }
     &__header {
         display: flex; align-items: center; justify-content: space-between;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     &__body {
         background-color: $color_white;
@@ -21,6 +21,9 @@
         border-radius: 30px;
         position: relative;
         padding: 50px 80px 80px;
+    }
+    &__mb {
+        margin-bottom: 60px;
     }
     &__actions {
         margin-top: 100px;

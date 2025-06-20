@@ -15,6 +15,11 @@
 .row {
     display: flex; align-items: center; justify-content: space-between;
     width: 100%;
+    &--actions {
+        .buttonicon, .c-button {
+            margin-left: 30px;
+        }
+    }
     &--ais {
         align-items: start;
     }
