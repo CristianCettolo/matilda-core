@@ -200,3 +200,23 @@
     max-height: calc(100% - #{$size_header_height} - 20px);
   }
 }
+
+
+
+@media (max-width: $breakpoint_sm) {
+  .c-header {
+    &__container {
+      justify-content: space-between;
+    }
+    &__logo {
+      position: static; transform: none;
+    }
+    &__nav {
+      &-item {
+        &-action {
+          padding: 10px 15px;
+        }
+      }
+    }
+  }
+}
