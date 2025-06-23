@@ -30,7 +30,9 @@ MatildaCore::Engine.routes.draw do
   post 'groups/create-action', to: 'groups#create_action', as: 'groups_create_action'
 
   # profile
-  get 'profile/index-view', to: 'profile#index_view', as: 'profile_index_view'
+  get 'profile/manage-main-view', to: 'profile#manage_main_view', as: 'profile_manage_main_view'
+  get 'profile/manage-password-view', to: 'profile#manage_password_view', as: 'profile_manage_password_view'
+  get 'profile/manage-email-view', to: 'profile#manage_email_view', as: 'profile_manage_email_view'
   post 'profile/edit-info-action', to: 'profile#edit_info_action', as: 'profile_edit_info_action'
   post 'profile/edit-username-action', to: 'profile#edit_username_action', as: 'profile_edit_username_action'
   post 'profile/create-email-action', to: 'profile#create_email_action', as: 'profile_create_email_action'
