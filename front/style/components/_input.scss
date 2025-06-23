@@ -41,3 +41,16 @@
         width: 25px; height: 25px;
     }
 }
+
+@media (max-width: $breakpoint_sm) {
+    .c-input {
+        flex-direction: column;
+        &__label {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        &__field {
+            width: 100%;
+        }
+    }
+}

@@ -66,6 +66,10 @@
             h3 {
                 margin-bottom: 15px;
             }
+            &-actions {
+                overflow-y: hidden;
+                overflow-x: scroll;
+            }
         }
         &__search {
             margin-top: 20px;
