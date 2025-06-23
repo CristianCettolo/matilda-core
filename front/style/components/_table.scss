@@ -31,3 +31,14 @@
         }
     }
 }
+
+@media (max-width: $breakpoint_sm) {
+    .c-table {
+        td, th {
+            display: none;
+            &:first-child, &:last-child {
+                display: block;
+            }
+        }
+    }
+}

@@ -56,3 +56,26 @@
         }
     }
 }
+
+@media (max-width: $breakpoint_sm) {
+    .c-content {
+        &__header {
+            flex-direction: column;
+            align-items: start;
+            padding: 20px 0;
+            h3 {
+                margin-bottom: 15px;
+            }
+        }
+        &__search {
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            &-btn {
+                position: absolute; right: 0; top: 45%;
+                transform: translateY(-50%);
+                padding: 14px 20px;
+            }
+        }
+    }
+}

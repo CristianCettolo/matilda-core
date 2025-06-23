@@ -177,3 +177,31 @@
     }
   }
 }
+
+@media (max-width: $breakpoint_sm) {
+  .c-section {
+        padding-top: 85px;
+        &__head {
+            &-title {
+                width: auto;
+                white-space: nowrap;
+            }
+            &-backtext {
+                display: none;
+            }
+        }
+        .main {
+            padding-top: 80px;
+        }
+        &__content {
+            &-cta {
+                width: 100%;
+                margin-bottom: 15px;
+                &:nth-child(n) {
+                    margin-top: 0;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+}

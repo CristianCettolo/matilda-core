@@ -33,3 +33,14 @@
         display: flex; justify-content: space-between;
     }
 }
+
+@media (max-width: $breakpoint_sm) {
+    .c-form {
+        &__body {
+            padding: 30px 10px;
+        }
+        &__row {
+            flex-direction: column;
+        }
+    }
+}
