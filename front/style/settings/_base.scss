@@ -34,3 +34,10 @@ span.code {
   max-width: 85%;
   margin: 0 auto;
 }
+
+.c-logs-viewer {
+  line-height: 2;
+  &__container {
+    overflow: hidden; overflow-x: scroll;
+  }
+}
