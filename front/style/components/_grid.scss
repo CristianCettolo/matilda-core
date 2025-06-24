@@ -10,6 +10,9 @@
         &-8 { width: 80%; }
         &-9 { width: 90%; }
         &-10 { width: 100%; }
+        &--stretch {
+            align-self: stretch;
+        }
     }
 
 .row {
