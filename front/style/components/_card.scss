@@ -29,7 +29,6 @@
 .c-card__header {
   background-color: $color_white;
   color: $color_black;
-  border-bottom: solid 1px darken($color_cenere, 5%);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   display: flex;
@@ -104,7 +103,6 @@
 }
 
 .c-card__body-list-item {
-  border-bottom: solid 1px darken($color_cenere, 5%);
   color: $color_black;
 
   &:last-child {

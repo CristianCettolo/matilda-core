@@ -47,11 +47,6 @@
 
   &:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_primary,.25);
-    background-color: darken($color_primary, 5%);
-  }
-
-  &:active, &:focus {
-    background-color: darken($color_primary, 10%);
   }
 
   &--green {
@@ -59,11 +54,6 @@
 
     &:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_green,.25);
-      background-color: darken($color_green, 5%);
-    }
-  
-    &:active, &:focus {
-      background-color: darken($color_green, 10%);
     }
   }
 
@@ -72,11 +62,9 @@
 
     &:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_blue,.25);
-      background-color: darken($color_blue, 5%);
     }
   
     &:active, &:focus {
-      background-color: darken($color_blue, 10%);
     }
   }
 
@@ -85,11 +73,6 @@
 
     &:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_yellow,.25);
-      background-color: darken($color_yellow, 5%);
-    }
-  
-    &:active, &:focus {
-      background-color: darken($color_yellow, 10%);
     }
   }
 
@@ -98,11 +81,6 @@
 
     &:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_orange,.25);
-      background-color: darken($color_orange, 5%);
-    }
-  
-    &:active, &:focus {
-      background-color: darken($color_orange, 10%);
     }
   }
 
@@ -111,11 +89,6 @@
 
     &:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_black,.25);
-      background-color: darken($color_black, 5%);
-    }
-  
-    &:active, &:focus {
-      background-color: darken($color_black, 10%);
     }
   }
   
@@ -125,11 +98,6 @@
 
     &:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,.05), 0 4px 10px rgba($color_cenere,.25);
-      background-color: darken($color_cenere, 5%);
-    }
-  
-    &:active, &:focus {
-      background-color: darken($color_cenere, 10%);
     }
   }
 

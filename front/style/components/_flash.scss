@@ -61,16 +61,11 @@
   border: solid 2px $color_primary;
   cursor: pointer;
 
-  &:hover {
-    background-color: darken($color_white, 5%);
-  }
-
   &:before, &:after {
     content: '';
     display: block;
     width: 2px;
     height: 10px;
-    background-color: darken($color_cenere, 30%);
     position: absolute;
     top: calc(50% - 5px);
     left: calc(50% - 1px);
