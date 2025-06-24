@@ -1,7 +1,7 @@
 .c-input {
     margin-bottom: 30px;
     display: flex; align-items: center; justify-content: space-between;
-    width: 70%;
+    width: 100%;
     &--border {
         border-bottom: 1px solid $color_gray;
     }
@@ -10,6 +10,7 @@
         font-weight: 600;
     }
     &__label {
+        width: 40%;
         font-size: 24px;
         white-space: nowrap;
         font-weight: 600;
