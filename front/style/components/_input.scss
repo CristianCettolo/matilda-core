@@ -24,6 +24,40 @@
     textarea {
         resize: none;
     }
+    &__row {
+        display: flex; align-items: center;
+        position: relative;
+    }
+    &__icon {
+        width: 45px; height: 45px;
+        background-color: $color_black; color: $color_white;
+        cursor: pointer;
+        transition: all .1s ease;
+        font-size: 24px;
+        border: none;
+        display: flex; align-items: center; justify-content: center;
+        &:hover {
+        background-color: rgba($color_black, .8);
+        }
+        &--minus {
+        margin-right: 10px;
+        }
+        &--plus {
+        margin-left: 10px;
+        }
+    }
+    &__unit {
+        font-size: 16px;
+        color: $color_black;
+        position: absolute; top: 50%; right: -80px;
+        width: 80px;
+        transform: translateY(-50%);
+    }
+    &__bb {
+        padding-top: 25px;
+        border-top: 1px solid $color_cenere;
+        margin-bottom: 20px;
+    }
 }
 
 .c-input-checkbox {
@@ -43,6 +77,54 @@
         cursor: pointer;
         width: 25px; height: 25px;
     }
+}
+
+.c-switch {
+  display: flex; align-items: center;
+  &__button {
+    cursor: pointer;
+    width: 45px; height: 45px;
+    border-radius: 50%;
+    border: 1px solid $color_black;
+    background-color: transparent;
+    position: relative;
+    &::before {
+      content: '';
+      opacity: 0;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 35px; height: 35px;
+      background-color: $color_black;
+      border-radius: 50%;
+      transition: all .1s ease;
+    }
+  }
+  &__label {
+    margin-left: 15px;
+    &--inactive {
+      display: block;
+    }
+    &--active {
+      display: none;
+    }
+  }
+  &--active {
+    .c-switch {
+      &__button {
+        &::before {
+          opacity: 1;
+        }
+      }
+      &__label {
+        &--inactive {
+          display: none;
+        }
+        &--active {
+          display: block;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: $breakpoint_sm) {

@@ -21,6 +21,9 @@
         border-radius: 30px;
         position: relative;
         padding: 50px 80px 80px;
+        &--small {
+            padding: 25px 70px;
+        }
     }
     &__mb {
         margin-bottom: 60px;
