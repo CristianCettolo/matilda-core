@@ -63,6 +63,7 @@ en:
       account_settings: Account settings
       documentation: Documentation
       administration: Administration
+      hide_useless_sessions: Hide sessions with obsolete data
     helps:
       insert_name_of_group: Insert the name of the group
       insert_username_or_email: Insert the username or email addess
@@ -98,3 +99,4 @@ en:
       action_confirmation_request: Are you sure to continue with this action?
       administrator: Administrator
       personalized: Personalized
+      hide_useless_sessions: Hide empty sessions or sessions shorter than one minute

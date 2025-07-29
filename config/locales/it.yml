@@ -70,6 +70,7 @@ it:
       account_settings: Impostazoni account
       documentation: Documentazione
       administration: Amministrazione
+      hide_useless_sessions: Nascondi le sessioni superflue
     helps: # stringhe di aiuto verso l'utente
       insert_name_of_group: Inserisci il nome del gruppo
       insert_username_or_email: Inserisci l'Username o l'indirizzo Email
@@ -106,3 +107,4 @@ it:
       action_confirmation_request: Sei sicuro di voler procedere con l'azione?
       administrator: Amministratore
       personalized: Personalizzato
+      hide_useless_sessions: Nascondi le sessioni vuote o più corte di un minuto

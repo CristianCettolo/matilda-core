@@ -40,6 +40,7 @@ MatildaCore::Engine.routes.draw do
   post 'profile/toggle-email-primary-action', to: 'profile#toggle_email_primary_action', as: 'profile_toggle_email_primary_action'
   post 'profile/edit-password-action', to: 'profile#edit_password_action', as: 'profile_edit_password_action'
   post 'profile/edit_units_system', to: 'profile#edit_units_system_action', as: 'profile_edit_units_system_action'
+  post 'profile/edit_useless_sessions_action', to: 'profile#edit_useless_sessions_action', as: :profile_edit_useless_sessions_action
 
   # memberships
   get 'memberships/index-view', to: 'memberships#index_view', as: 'memberships_index_view'

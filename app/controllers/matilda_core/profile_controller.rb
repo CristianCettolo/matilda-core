@@ -33,6 +33,36 @@ module MatildaCore
       render_json_success({})
     end
 
+    def edit_useless_sessions_action
+      # Recupero il parametro dal form
+      hide_useless_sessions = params[:hide_useless_sessions] == '1'
+      
+      # Verifico che l'utente esista
+      user = MatildaCore::User.find_by(uuid: @session.user_uuid)
+      unless user
+        render_json_error('User not found')
+        return
+      end
+      
+      # Aggiorno il campo hide_useless_sessions dell'utente
+      result = user.update(hide_useless_sessions: hide_useless_sessions)
+      
+      unless result
+        render_json_error(user.errors.full_messages.join(', '))
+        return
+      end
+      
+      # Registro l'operazione nei log (opzionale)
+      log_info = { 
+        hide_useless_sessions: hide_useless_sessions,
+        uuid: user.uuid, 
+        username: user.username 
+      }
+      
+      # Ritorno un successo
+      render_json_success({})
+    end
+
     def create_email_action
       command = command_manager(generate_create_email_command)
       return unless command
