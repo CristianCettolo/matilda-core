@@ -17,7 +17,10 @@ module MatildaCore
         )&.update(
           name: payload[:name],
           surname: payload[:surname],
-          mask_sensitive_data: payload[:mask_sensitive_data]
+          mask_sensitive_data: payload[:mask_sensitive_data],
+          username: payload[:username],
+          units_system: payload[:units_system],
+          hide_useless_sessions: payload[:hide_useless_sessions]
         )
       end
 
