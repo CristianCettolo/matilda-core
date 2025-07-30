@@ -19,17 +19,13 @@ module MatildaCore
                 presence: true, type: :string, blank: false,
                 err: I18n.t('matilda_core.messages.surname_not_valid')
 
-      validates :username,
-                type: :string
+      validates :username, type: :string
 
-      validates :mask_sensitive_data,
-                type: :boolean, blank: false
+      validates :mask_sensitive_data, type: :boolean
       
-      validates :units_system,
-                type: :string
+      validates :units_system, type: :string
       
-      validates :hide_useless_sessions,
-                type: :boolean, blank: false, default: false      
+      validates :hide_useless_sessions, type: :boolean    
                 
       validates :log_who, type: :string
 
@@ -44,6 +40,7 @@ module MatildaCore
       to_initialize_events do
         # Converto il valore di mask_sensitive_data in un booleano prima di passarlo all'evento
         mask_value = params[:mask_sensitive_data] == '1' || params[:mask_sensitive_data] == true
+        mask_value = params[:hide_useless_sessions] == '1' || params[:hide_useless_sessions] == true
         
         event = MatildaCore::Users::EditInfoEvent.new(
           user_uuid: params[:user_uuid],
