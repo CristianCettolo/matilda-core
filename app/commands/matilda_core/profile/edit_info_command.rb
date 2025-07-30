@@ -38,11 +38,10 @@ module MatildaCore
       end
 
       to_initialize_events do
-        # Converto il valore di mask_sensitive_data in un booleano prima di passarlo all'evento
+        # Gestisci i valori nil per i checkbox (quando non selezionati arrivano nil)
         mask_value = params[:mask_sensitive_data] == '1' || params[:mask_sensitive_data] == true
-        mask_value = params[:hide_useless_sessions] == '1' || params[:hide_useless_sessions] == true
-
-        Rails.logger.info "Event params: #{params.inspect}"
+        hide_value = params[:hide_useless_sessions] == '1' || params[:hide_useless_sessions] == true
+        
         Rails.logger.info "mask_value: #{mask_value}, hide_value: #{hide_value}"
         
         event = MatildaCore::Users::EditInfoEvent.new(
@@ -52,7 +51,7 @@ module MatildaCore
           mask_sensitive_data: mask_value,
           log_who: params[:log_who],
           units_system: params[:units_system],
-          hide_useless_sessions: params[:hide_useless_sessions],
+          hide_useless_sessions: hide_value,
           username: params[:username]
         )
         internal_error && break unless event.saved?
