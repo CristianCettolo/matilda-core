@@ -84,7 +84,7 @@ module MatildaCore
         
         # Se ho trovato una parola vietata, mostro l'errore con la parola vietata
         if found_forbidden_name
-          err("Il nome ed il cognome non possono contenere la parola vietata: #{found_forbidden_name}", code: :invalid_name_or_surname)
+          err("Il nome, il cognome e lo username non possono contenere la parola vietata: #{found_forbidden_name}", code: :invalid_name_or_surname)
           break
         end
 
