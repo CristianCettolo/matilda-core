@@ -18,6 +18,18 @@ module MatildaCore
       validates :surname,
                 presence: true, type: :string, blank: false,
                 err: I18n.t('matilda_core.messages.surname_not_valid')
+
+      validates :username,
+                type: :string
+
+      validates :mask_sensitive_data,
+                type: :boolean, blank: false
+      
+      validates :units_system,
+                type: :string
+      
+      validates :hide_useless_sessions,
+                type: :boolean, blank: false, default: false      
                 
       validates :log_who, type: :string
 
@@ -38,7 +50,10 @@ module MatildaCore
           name: params[:name],
           surname: params[:surname],
           mask_sensitive_data: mask_value,
-          log_who: params[:log_who]
+          log_who: params[:log_who],
+          units_system: params[:units_system],
+          hide_useless_sessions: params[:hide_useless_sessions],
+          username: params[:username]
         )
         internal_error && break unless event.saved?
       end
