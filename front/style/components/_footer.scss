@@ -4,6 +4,9 @@
   margin-left: $size_sidebar_width;
   padding: 0 15px;
   transition: all 0.3s;
+  position: fixed;
+  background-color: $color_white;
+  bottom: 0;
 
   &--full {
     width: 100%;

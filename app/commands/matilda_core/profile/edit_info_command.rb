@@ -68,7 +68,7 @@ module MatildaCore
           
           # Se ho trovato una parola vietata, mostro l'errore con la parola vietata
           if found_forbidden_name
-            err(I18n.t('matilda_core.messages.forbidden_word_in_profile', word: found_forbidden_name), code: :invalid_name_or_surname)
+            err(I18n.t('matilda_core.messages.forbidden_word_in_name', word: found_forbidden_name), code: :invalid_name_or_surname)
             break
           end
       end
