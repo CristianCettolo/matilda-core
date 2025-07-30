@@ -20,12 +20,8 @@ module MatildaCore
                 err: I18n.t('matilda_core.messages.surname_not_valid')
 
       validates :username, type: :string
-
-      validates :mask_sensitive_data, type: :boolean
       
-      validates :units_system, type: :string
-      
-      validates :hide_useless_sessions, type: :boolean    
+      validates :units_system, type: :string   
                 
       validates :log_who, type: :string
 
