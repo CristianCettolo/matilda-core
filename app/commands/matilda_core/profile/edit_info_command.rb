@@ -33,6 +33,46 @@ module MatildaCore
         end
       end
 
+      to_validate_params do
+         # Verifico se il nome o il cognome contengono parole vietate
+          forbidden_names = Setting.first&.forbidden_names || []
+          found_forbidden_name = nil
+          
+          # Controllo nel nome
+          forbidden_names.each do |forbidden|
+            if params[:name].downcase.include?(forbidden.downcase)
+              found_forbidden_name = forbidden
+              break
+            end
+          end
+          
+          # Se non ho trovato nel nome, controllo nel cognome
+          if found_forbidden_name.nil?
+            forbidden_names.each do |forbidden|
+              if params[:surname].downcase.include?(forbidden.downcase)
+                found_forbidden_name = forbidden
+                break
+              end
+            end
+          end
+
+          # Se non ho trovato nel cognome, controllo nello username
+          if found_forbidden_name.nil?
+            forbidden_names.each do |forbidden|
+              if params[:username].downcase.include?(forbidden.downcase)
+                found_forbidden_name = forbidden
+                break
+              end
+            end
+          end
+          
+          # Se ho trovato una parola vietata, mostro l'errore con la parola vietata
+          if found_forbidden_name
+            err("Il nome ed il cognome non possono contenere la parola vietata: #{found_forbidden_name}", code: :invalid_name_or_surname)
+            break
+          end
+      end
+
       to_initialize_events do
         # Gestisci i valori nil per i checkbox (quando non selezionati arrivano nil)
         mask_value = params[:mask_sensitive_data] == '1' || params[:mask_sensitive_data] == true
