@@ -93,6 +93,17 @@ it:
       groups_creation_unpermitted: I gruppi non possono essere registrati
       groups_max_number_per_user: Hai raggiunto il numero massimo di gruppi disponibili
       email_not_verified: L'indirizzo Email non è stato verificato. Per favore verifica l'indirizzo Email prima di procedere.
+      password_length: La password deve essere lunga almeno 8 caratteri
+      password_not_match: Le password non corrispondono
+      password_regex: La password deve contenere almeno un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale
+      password_cannot_match_name: "La password non può essere uguale al nome o al cognome"
+      forbidden_word_in_name: "Il nome, il cognome e lo username non possono contenere la parola vietata: %{word}"
+      signup_not_permitted: "La registrazione non può essere eseguita"
+      username_already_taken: "Username già utilizzato"
+      email_already_taken: "Email già utilizzata"
+      forbidden_word_in_profile: "Il nome ed il cognome non possono contenere la parola vietata: %{word}"
+      current_password_not_valid: "Password attuale non valida"
+      current_password_incorrect: "Password attuale non corretta"
     strings: # altre stringhe varie utilizzate.
       no_data_found_title: Nessun dato trovato
       no_data_found_content: Non ci sono dati presenti nel sistema

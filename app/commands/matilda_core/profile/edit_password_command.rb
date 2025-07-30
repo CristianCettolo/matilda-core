@@ -9,38 +9,38 @@ module MatildaCore
 
       validates :user_uuid,
                 presence: true, type: :string, blank: false,
-                err: 'Utente non valido'
+                err: I18n.t('matilda_core.messages.user_not_valid')
 
       validates :password_old,
                 presence: true, type: :string, blank: false,
-                err: 'Password attuale non valida'
+                err: I18n.t('matilda_core.messages.current_password_not_valid')
 
       validates :password,
                 presence: true, type: :string, blank: false,
-                err: 'Password non valida' # TODO: Aggiungere Regex password.
+                err: I18n.t('matilda_core.messages.password_not_valid')
 
       validates :password_confirmation,
                 presence: true, type: :string, blank: false,
-                err: 'Password non valida' # TODO: Aggiungere Regex password.
+                err: I18n.t('matilda_core.messages.password_not_valid')
 
       validates :log_who, type: :string
 
       to_validate_params do
         # verifico che le due password coincidano
         unless params[:password] == params[:password_confirmation]
-          err('Le due password non coincidono', code: :password_confirmation)
+          err(I18n.t('matilda_core.messages.password_not_match'), code: :password_confirmation)
           break
         end
 
         # Verifico che la password rispetti il regex
         unless params[:password].match?(MatildaCore::User::PASSWORD_REGEX)
-          err('La password deve contenere almeno: 1 lettera maiuscola, 1 numero ed 1 simbolo', code: :invalid_password)
+          err(I18n.t('matilda_core.messages.password_regex'), code: :invalid_password)
           break
         end
 
         # Verifico che la password sia lunga almeno 8 caratteri
         if params[:password].length < 8
-          err('La password deve essere lunga almeno 8 caratteri', code: :invalid_password_length)
+          err(I18n.t('matilda_core.messages.password_length'), code: :invalid_password_length)
           break
         end
       end
@@ -50,13 +50,13 @@ module MatildaCore
 
         # verifico che l'utente esista
         unless user
-          err('Utente non valido', code: :user_uuid)
+          err(I18n.t('matilda_core.messages.user_not_valid'), code: :user_uuid)
           break
         end
 
         # verifico che la vecchia password sia corretta
         unless BCrypt::Password.new(user.password) == params[:password_old]
-          err('Password attuale non corretti', code: :password_old)
+          err(I18n.t('matilda_core.messages.current_password_incorrect'), code: :password_old)
           break
         end
       end

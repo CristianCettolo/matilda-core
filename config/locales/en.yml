@@ -85,6 +85,17 @@ en:
       user_not_valid: User not valid
       groups_creation_unpermitted: Groups can not be created
       groups_max_number_per_user: You have reached the maximum number of groups
+      password_length: Password must be at least 8 characters long
+      password_not_match: Passwords do not match
+      password_regex: The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+      password_cannot_match_name: "Password cannot be the same as name or surname"
+      forbidden_word_in_name: "Name, surname and username cannot contain the forbidden word: %{word}"
+      signup_not_permitted: "Registration is not allowed"
+      username_already_taken: "Username already taken"
+      email_already_taken: "Email already in use"
+      forbidden_word_in_profile: "Name and surname cannot contain the forbidden word: %{word}"
+      current_password_not_valid: "Current password is not valid"
+      current_password_incorrect: "Current password is incorrect"
     strings:
       no_data_found_title: No data found
       no_data_found_content: There are not data present on the system

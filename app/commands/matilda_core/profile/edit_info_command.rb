@@ -68,7 +68,7 @@ module MatildaCore
           
           # Se ho trovato una parola vietata, mostro l'errore con la parola vietata
           if found_forbidden_name
-            err("Il nome ed il cognome non possono contenere la parola vietata: #{found_forbidden_name}", code: :invalid_name_or_surname)
+            err(I18n.t('matilda_core.messages.forbidden_word_in_profile', word: found_forbidden_name), code: :invalid_name_or_surname)
             break
           end
       end
@@ -77,8 +77,6 @@ module MatildaCore
         # Gestisci i valori nil per i checkbox (quando non selezionati arrivano nil)
         mask_value = params[:mask_sensitive_data] == '1' || params[:mask_sensitive_data] == true
         hide_value = params[:hide_useless_sessions] == '1' || params[:hide_useless_sessions] == true
-        
-        Rails.logger.info "mask_value: #{mask_value}, hide_value: #{hide_value}"
         
         event = MatildaCore::Users::EditInfoEvent.new(
           user_uuid: params[:user_uuid],

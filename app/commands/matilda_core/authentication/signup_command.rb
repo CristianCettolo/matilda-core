@@ -31,11 +31,11 @@ module MatildaCore
 
       validates :password,
                 presence: true, type: :string, blank: false,
-                err: 'Password non valida'
+                err: I18n.t('matilda_core.messages.password_not_valid')
 
       validates :password_confirmation,
                 presence: true, type: :string, blank: false,
-                err: 'Password non valida'
+                err: I18n.t('matilda_core.messages.password_not_valid')
 
       validates :privacy, type: :string
 
@@ -50,13 +50,13 @@ module MatildaCore
       to_validate_params do
         # verifico che le due password siano uguali
         if params[:password] != params[:password_confirmation]
-          err('Le due password non coincidono', code: :password_confirmation)
+          err(I18n.t('matilda_core.messages.password_not_match'), code: :password_confirmation)
           break
         end
 
         # verifico che la password non sia uguale al nome o al cognome
         if params[:password] == params[:name] || params[:password] == params[:surname]
-          err('La password non può essere uguale al nome o al cognome', code: :password)
+          err(I18n.t('matilda_core.messages.password_cannot_match_name'), code: :password)
           break
         end
 
@@ -84,38 +84,38 @@ module MatildaCore
         
         # Se ho trovato una parola vietata, mostro l'errore con la parola vietata
         if found_forbidden_name
-          err("Il nome, il cognome e lo username non possono contenere la parola vietata: #{found_forbidden_name}", code: :invalid_name_or_surname)
+          err(I18n.t('matilda_core.messages.forbidden_word_in_name', word: found_forbidden_name), code: :invalid_name_or_surname)
           break
         end
 
         # Verifico che la password rispetti il regex
         unless params[:password].match?(MatildaCore::User::PASSWORD_REGEX)
-          err('La password deve contenere almeno: 1 lettera maiuscola, 1 numero ed 1 simbolo', code: :invalid_password)
+          err(I18n.t('matilda_core.messages.password_regex'), code: :invalid_password)
           break
         end
 
         # Verifico che la password sia lunga almeno 8 caratteri
         if params[:password].length < 8
-          err('La password deve essere lunga almeno 8 caratteri', code: :invalid_password_length)
+          err(I18n.t('matilda_core.messages.password_length'), code: :invalid_password_length)
           break
         end
       end
 
       to_validate_logic do
         unless MatildaCore.config.authentication_permit_signup
-          err('La registrazione non può essere eseguita')
+          err(I18n.t('matilda_core.messages.signup_not_permitted'))
           break
         end
 
         # verifico che l'username sia univoco
         if MatildaCore::User.find_by(username: params[:username])
-          err('Username già utilizzato', code: :username)
+          err(I18n.t('matilda_core.messages.username_already_taken'), code: :username)
           break
         end
 
         # verifico che la email sia univoca
         if MatildaCore::UserEmail.find_by(email: params[:email])
-          err('Email già utilizzata', code: :email)
+          err(I18n.t('matilda_core.messages.email_already_taken'), code: :email)
           break
         end
       end
