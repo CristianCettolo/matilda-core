@@ -41,6 +41,9 @@ module MatildaCore
         # Converto il valore di mask_sensitive_data in un booleano prima di passarlo all'evento
         mask_value = params[:mask_sensitive_data] == '1' || params[:mask_sensitive_data] == true
         mask_value = params[:hide_useless_sessions] == '1' || params[:hide_useless_sessions] == true
+
+        Rails.logger.info "Event params: #{params.inspect}"
+        Rails.logger.info "mask_value: #{mask_value}, hide_value: #{hide_value}"
         
         event = MatildaCore::Users::EditInfoEvent.new(
           user_uuid: params[:user_uuid],
