@@ -85,7 +85,10 @@ module MatildaCore
 
     def verify_email_action
       user = MatildaCore::User.find_by(uuid: params[:u])
-      return render_json_error('User not found') unless user
+      unless user
+        render_json_error('User not found')
+        return
+      end
 
       user.update(email_verified: true)
       if user.errors.any?
