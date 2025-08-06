@@ -90,14 +90,14 @@ module MatildaCore
         return
       end
 
-      user.update(email_verified: true)
-      if user.errors.any?
+      if user.update(email_verified: true)
+        flash[:notice] = I18n.t('matilda_core.messages.email_verified')
+        redirect_to matilda_core.authentication_login_view_path
+      else
         render_json_error(user.errors.full_messages.join(', '))
         return
       end
 
-      flash[:notice] = I18n.t('matilda_core.messages.email_verified')
-      redirect_to matilda_core.authentication_login_view_path
     end
 
     private
