@@ -142,7 +142,10 @@ module MatildaCore
           primary: true,
           log_who: params[:log_who]
         )
+
         internal_error && break unless event_email.saved?
+
+        AuthenticationMailer.verify_email(@user_uuid, params[:email]).deliver_now
 
         # creo una nuova sessione
         event_session = MatildaCore::Users::CreateSessionEvent.new(
