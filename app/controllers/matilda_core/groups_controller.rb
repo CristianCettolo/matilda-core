@@ -66,6 +66,54 @@ module MatildaCore
       MatildaCore::Groups::CreateGroupCommand.new(command_params)
     end
 
+    def check_if_verified
+      return false unless check_session
+      puts '@' * 100
+
+      if @session.user&.email_verified?
+        return true
+      else
+        flash.alert = I18n.t('application.messages.email_not_verified')
+        session_destroy
+      end
+    end
+
+  # FUNZIONI DI CONTROLLO PRIVACY POLICY
+    ##############################################################################################################
+
+    def check_privacy_policy_acceptance
+      return unless session_present?
+      
+      current_policy_version = Setting.first&.privacy_policy_version
+      return unless current_policy_version 
+      
+      user = MatildaCore::User.find_by(uuid: @session.user_uuid)
+      return unless user 
+      
+      latest_consent = user.privacy_consents.find_by(privacy_version: current_policy_version)
+      
+      unless latest_consent&.authorizations&.include?('privacy')
+        logout_current_user
+        flash[:alert] = I18n.t('application.messages.privacy_policy_updated')
+        redirect_to matilda_core.authentication_login_view_path
+      end
+    end
+
+    def logout_current_user
+      return unless session_present?
+      
+      logout_command = MatildaCore::Authentication::LogoutCommand.new(
+        session_uuid: @session.user_session_uuid,
+        log_who: 'system_privacy_policy_check'
+      )
+      
+      # Execute logout command
+      logout_command.completed?
+      
+      # Destroy session
+      session_destroy
+    end
+
   end
 
 end
