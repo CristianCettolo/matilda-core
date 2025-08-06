@@ -148,13 +148,13 @@ module MatildaCore
         AuthenticationMailer.verify_email(@user_uuid, params[:email]).deliver_now
 
         # creo una nuova sessione
-        event_session = MatildaCore::Users::CreateSessionEvent.new(
-          session_uuid: @session_uuid,
-          user_uuid: @user_uuid,
-          ip_address: params[:ip_address],
-          log_who: params[:log_who]
-        )
-        internal_error && break unless event_session.saved?
+        # event_session = MatildaCore::Users::CreateSessionEvent.new(
+        #   session_uuid: @session_uuid,
+        #   user_uuid: @user_uuid,
+        #   ip_address: params[:ip_address],
+        #   log_who: params[:log_who]
+        # )
+        # internal_error && break unless event_session.saved?
 
         # aggiungo l'utente al gruppo di default se e' stato specificato nella configurazione generica
         if MatildaCore.config.authentication_signup_default_group_uuid && MatildaCore::Group.find_by(uuid: MatildaCore.config.authentication_signup_default_group_uuid)
