@@ -60,10 +60,6 @@ module MatildaCore
 
     private
 
-    def check_session
-      session_present_check(:group_uuid)
-    end
-
     def generate_create_command
       command_params = params.permit(:name)
       command_params[:log_who] = @session.user_uuid
@@ -71,9 +67,8 @@ module MatildaCore
     end
 
     def check_if_verified
-      return false unless check_session
-      puts '@' * 100
-
+      return unless session_present?
+      
       if @session.user&.email_verified?
         return true
       else
