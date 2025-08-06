@@ -104,6 +104,7 @@ it:
       forbidden_word_in_profile: "Il nome ed il cognome non possono contenere la parola vietata: %{word}"
       current_password_not_valid: "Password attuale non valida"
       current_password_incorrect: "Password attuale non corretta"
+      email_verified: "L'indirizzo Email è stato verificato correttamente"
     strings: # altre stringhe varie utilizzate.
       no_data_found_title: Nessun dato trovato
       no_data_found_content: Non ci sono dati presenti nel sistema

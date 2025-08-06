@@ -1,0 +1,8 @@
+Hi <%= @user.complete_name %>,<br><br>
+
+To complete your registration on <b><%= MatildaCore.config.global_title %></b>, 
+please verify your email address by clicking the link below:<br><br>
+
+If you did not try to sign up, please ignore this email.<br><br>
+
+<%= matilda_core.authentication_verify_email_view_url(u: @user.uuid) %>

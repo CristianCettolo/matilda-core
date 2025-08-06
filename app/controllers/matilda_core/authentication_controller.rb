@@ -83,6 +83,20 @@ module MatildaCore
       render_json_success({})
     end
 
+    def verify_email_action
+      user = MatildaCore::User.find_by(uuid: params[:u])
+      return render_json_error('User not found') unless user
+
+      user.update(email_verified: true)
+      if user.errors.any?
+        render_json_error(user.errors.full_messages.join(', '))
+        return
+      end
+
+      flash[:notice] = I18n.t('matilda_core.messages.email_verified')
+      render_json_success({})
+    end
+
     private
 
     def create_auth_session(session_uuid, user_uuid)

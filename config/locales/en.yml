@@ -96,6 +96,7 @@ en:
       forbidden_word_in_profile: "Name and surname cannot contain the forbidden word: %{word}"
       current_password_not_valid: "Current password is not valid"
       current_password_incorrect: "Current password is incorrect"
+      email_verified: "Email address has been successfully verified"
     strings:
       no_data_found_title: No data found
       no_data_found_content: There are not data present on the system
