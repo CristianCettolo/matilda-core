@@ -5,4 +5,6 @@ please verify your email address by clicking the link below:<br><br>
 
 If you did not try to sign up, please ignore this email.<br><br>
 
-<%= matilda_core.authentication_verify_email_view_url(u: @user.uuid) %>
+<%= button_to matilda_core.authentication_verify_email_action_url(u: @user.uuid), method: :post do %>
+    Click here to verify your account
+<% end %>
