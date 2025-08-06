@@ -94,7 +94,7 @@ module MatildaCore
       end
 
       flash[:notice] = I18n.t('matilda_core.messages.email_verified')
-      render_json_success({})
+      redirect_to matilda_core.authentication_login_view_path
     end
 
     private
