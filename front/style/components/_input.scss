@@ -24,6 +24,9 @@
     textarea {
         resize: none;
     }
+    &__textarea {
+      min-height: 300px;
+    }
     &__row {
         display: flex; align-items: center;
         position: relative;
