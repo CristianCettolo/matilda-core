@@ -60,6 +60,10 @@ module MatildaCore
 
     private
 
+    def check_session
+      session_present_check(:group_uuid)
+    end
+
     def generate_create_command
       command_params = params.permit(:name)
       command_params[:log_who] = @session.user_uuid
