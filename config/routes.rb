@@ -21,7 +21,7 @@ MatildaCore::Engine.routes.draw do
   post 'authentication/recover-password-action', to: 'authentication#recover_password_action', as: 'authentication_recover_password_action'
   post 'authentication/update-password-action', to: 'authentication#update_password_action', as: 'authentication_update_password_action'
   post 'authentication/logout-action', to: 'authentication#logout_action', as: 'authentication_logout_action'
-  post 'authentication/verify-email-action', to: 'authentication#verify_email_action', as: 'authentication_verify_email_action'
+  get 'authentication/verify-email-action', to: 'authentication#verify_email_action', as: 'authentication_verify_email_action'
 
   # groups
   get 'groups/select-view', to: 'groups#select_view', as: 'groups_select_view'
