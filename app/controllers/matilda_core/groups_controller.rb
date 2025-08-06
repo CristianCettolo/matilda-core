@@ -5,7 +5,7 @@ module MatildaCore
   # GroupsController.
   class GroupsController < MatildaCore::ApplicationController
 
-    before_action :session_present_check, :check_if_verified, :check_privacy_policy_acceptance
+    before_action :session_present_check, :check_if_verified
 
     def index_view
       if MatildaCore.config.groups_root_path
@@ -68,7 +68,7 @@ module MatildaCore
 
     def check_if_verified
       return unless session_present?
-      
+
       if @session.user&.email_verified?
         return true
       else
