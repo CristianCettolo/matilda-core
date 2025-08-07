@@ -83,17 +83,24 @@ module MatildaCore
       render_json_success({})
     end
 
+    def verify_email_view
+      @user = MatildaCore::User.find_by(uuid: params[:u])
+    end
+
     def verify_email_action
       user = MatildaCore::User.find_by(uuid: params[:u])
       unless user
+        Rails.logger.error 'User not found'
         render_json_error('User not found')
         return
       end
 
       if user.update(email_verified: true)
+        Rails.logger.error 'User updated'
         flash[:notice] = I18n.t('matilda_core.messages.email_verified')
         redirect_to matilda_core.authentication_login_view_path
       else
+        Rails.logger.error user.errors.full_messages.join(', ')
         render_json_error(user.errors.full_messages.join(', '))
         return
       end

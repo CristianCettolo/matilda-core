@@ -1,6 +1,7 @@
 .c-table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
     thead, thead tr {
         background-color: rgba($color_gray, .2);
     }
