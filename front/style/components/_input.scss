@@ -28,7 +28,7 @@
       min-height: 300px;
     }
     &__row {
-        display: flex; align-items: center;
+        display: flex; align-items: center; justify-content: space-between;
         position: relative;
     }
     &__icon {
@@ -52,7 +52,7 @@
     &__unit {
         font-size: 16px;
         color: $color_black;
-        position: absolute; top: 50%; right: -80px;
+        position: absolute; top: 50%; right: -100px;
         width: 80px;
         transform: translateY(-50%);
     }
