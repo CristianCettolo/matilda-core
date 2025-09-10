@@ -64,7 +64,6 @@
   background-color: transparent;
   height: 85px;
   padding: 30px;
-  color: $color_white;
   font-size: 22px;
   height: $size_header_height - 1px;
   cursor: pointer;
@@ -73,10 +72,6 @@
   text-transform: uppercase;
   display: flex; justify-content: center; align-items: center;
   text-decoration: none;
-
-  &:hover, &:focus {
-    color: $color_white;
-  }
 }
 
 .c-header__nav-item-locale {
