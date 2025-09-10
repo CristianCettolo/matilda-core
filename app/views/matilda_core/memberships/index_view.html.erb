@@ -22,6 +22,11 @@
               <tbody>
                 <% @users.each do |user| %>
                   <tr>
+                    <td class="mobile">
+                      <span><p><%= I18n.t 'matilda_core.labels.name' %></p><p><%= user.complete_name %></p></span>
+                      <span><p><%= I18n.t 'matilda_core.labels.username' %></p><p>@<%= user.username.truncate(25) %></p></span>
+                      <span><p><%= I18n.t 'matilda_core.labels.email' %></p><p><%= user.email %></p></span>
+                    </td>
                     <td><%= user.complete_name %></td>
                     <td class="c-table__col-not-imp">@<%= user.username.truncate(25) %></td>
                     <td class="c-table__col-not-imp"><%= user.email %></td>
