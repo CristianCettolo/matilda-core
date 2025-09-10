@@ -49,15 +49,15 @@
             display: none;
             padding: 20px;
             overflow: auto;
+            &:last-child {
+                display: flex;
+            }
         }
         .mobile {
             display: flex; flex-direction: column;
             span {
                 display: flex; align-items: center; justify-content: space-between;
             }
-        }
-        &__actions {
-            display: flex; align-items: center;
         }
     }
 }
