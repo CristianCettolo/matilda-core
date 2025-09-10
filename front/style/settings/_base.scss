@@ -41,3 +41,10 @@ span.code {
     overflow: hidden; overflow-x: scroll;
   }
 }
+
+@media (max-width: $breakpoint_sm) {
+.r-map {
+  height: 400px;
+  margin-top: 30px;
+}
+}
