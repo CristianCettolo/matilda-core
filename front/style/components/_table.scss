@@ -35,14 +35,25 @@
     &--dgn {
         margin-bottom: 50px;
     }
+    .mobile {
+        display: none;
+    }
 }
 
 @media (max-width: $breakpoint_sm) {
     .c-table {
+        thead {
+            display: none;
+        }
         td, th {
             display: none;
-            &:first-child, &:last-child {
-                display: block;
+            padding: 20px;
+            overflow: auto;
+        }
+        .mobile {
+            display: flex; flex-direction: column;
+            span {
+                display: flex; align-items: center; justify-content: space-between;
             }
         }
     }
