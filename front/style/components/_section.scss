@@ -144,18 +144,22 @@
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
-  }
-
-  .c-section__head-title {
-    font-size: 24px;
-  }
-
-  .c-section__head-breadcrumb {
-    padding-top: 0;
-  }
-
-  .c-section__head-breadcrumb-link {
-    font-size: 10px;
+    &-container {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+    &-title {
+      overflow: auto;
+      position: static;
+      transform: none;
+      font-size: 24px;
+    }
+    &-breadcrumb {
+      padding-top: 0;
+      &-link {
+        font-size: 10px;
+      }
+    }
   }
 
   .c-section__content {
