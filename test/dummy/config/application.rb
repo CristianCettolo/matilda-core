@@ -17,7 +17,7 @@ module Dummy
 
     # Aggiungo supporto multilingua per test supporto con Matilda.
     config.i18n.default_locale = :en
-    # config.i18n.available_locales = [:en, :it]
+    config.i18n.available_locales = [:en, :it]
   end
 end
 
