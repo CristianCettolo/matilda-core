@@ -85,6 +85,19 @@ module MatildaCore
 
     def verify_email_view
       @user = MatildaCore::User.find_by(uuid: params[:u])
+      
+      unless @user
+        flash[:error] = I18n.t('matilda_core.messages.user_not_found')
+        redirect_to matilda_core.authentication_login_view_path
+        return
+      end
+
+      if @user.update(email_verified: true)
+        flash[:notice] = I18n.t('matilda_core.messages.email_verified')
+        redirect_to matilda_core.authentication_login_view_path
+      else
+        flash[:error] = @user.errors.full_messages.join(', ')
+      end
     end
 
     def verify_email_action
