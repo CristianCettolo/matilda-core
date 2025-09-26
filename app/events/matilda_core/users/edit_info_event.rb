@@ -22,8 +22,7 @@ module MatildaCore
             user.user_emails.create!(email: payload[:email], primary: true)
           end
         rescue ActiveRecord::RecordNotUnique
-          json_errors(json_error(I18n.t('application.messages.email_already_used'), :email_already_used))
-          render_json_fail
+          flash.alert = I18n.t('application.messages.email_already_used')
           return
         end
 
