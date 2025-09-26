@@ -23,6 +23,8 @@ module MatildaCore
       
       validates :phone, type: :string
       
+      validates :email, type: :string
+
       validates :units_system, type: :string   
                 
       validates :log_who, type: :string
@@ -88,6 +90,7 @@ module MatildaCore
           log_who: params[:log_who],
           units_system: params[:units_system],
           phone: params[:phone],
+          email: params[:email],
           hide_useless_sessions: hide_value,
           username: params[:username]
         )
