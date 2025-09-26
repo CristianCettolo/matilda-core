@@ -138,7 +138,7 @@ module MatildaCore
       user = MatildaCore::User.find_by(uuid: @session.user_uuid)
       if user.email != command_params[:email] && MatildaCore::UserEmail.exists?(email: command_params[:email])
         flash[:alert] = I18n.t('application.messages.email_already_used')
-        render_json_fail
+        return
       end
 
       MatildaCore::Profile::EditInfoCommand.new(command_params)
