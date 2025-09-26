@@ -17,9 +17,9 @@ module MatildaCore
 
         begin
           if user_email
-            user_email.update!(email: params[:email])
+            user_email.update!(email: payload[:email])
           else
-            user.user_emails.create!(email: params[:email], primary: true)
+            user.user_emails.create!(email: payload[:email], primary: true)
           end
         rescue ActiveRecord::RecordNotUnique
           json_errors(json_error(I18n.t('application.messages.email_already_used'), :email_already_used))
