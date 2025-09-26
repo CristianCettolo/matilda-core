@@ -12,13 +12,22 @@ module MatildaCore
       payload_attributes_are :user_uuid, :name, :surname, :mask_sensitive_data, :log_who, :username, :units_system, :hide_useless_sessions, :phone, :email
 
       to_write_event do
-        user_email = MatildaCore::User.find_by(uuid: payload[:user_uuid])&.user_emails.find_by(primary: true) || MatildaCore::User.find_by(uuid: payload[:user_uuid])&.user_emails&.first
+        user = MatildaCore::User.find_by(uuid: payload[:user_uuid])
+        user_email = user&.user_emails.find_by(primary: true) || user&.user_emails&.first
 
-        user_email.update(email: payload[:email]) if user_email && payload[:email].present? && user_email.email != payload[:email]
+        begin
+          if user_email
+            user_email.update!(email: params[:email])
+          else
+            user.user_emails.create!(email: params[:email], primary: true)
+          end
+        rescue ActiveRecord::RecordNotUnique
+          json_errors(json_error(I18n.t('application.messages.email_already_used'), :email_already_used))
+          render_json_fail
+          return
+        end
 
-        set_not_saved unless save_event && MatildaCore::User.find_by(
-          uuid: payload[:user_uuid]
-        )&.update(
+        set_not_saved unless save_event && user&.update(
           name: payload[:name],
           surname: payload[:surname],
           mask_sensitive_data: payload[:mask_sensitive_data],
