@@ -133,6 +133,14 @@ module MatildaCore
       command_params = params.permit(:name, :surname, :mask_sensitive_data, :username, :units_system, :hide_useless_sessions, :phone, :email)
       command_params[:user_uuid] = @session.user_uuid
       command_params[:log_who] = @session.user_uuid
+      
+      # Verifica se la mail è già in uso
+      user = MatildaCore::User.find_by(uuid: @session.user_uuid)
+      if user.email != command_params[:email] && MatildaCore::UserEmail.exists?(email: command_params[:email])
+        flash[:alert] = I18n.t('application.messages.email_already_used')
+        render_json_fail
+      end
+
       MatildaCore::Profile::EditInfoCommand.new(command_params)
     end
 

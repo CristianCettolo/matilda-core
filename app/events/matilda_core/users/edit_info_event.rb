@@ -22,7 +22,7 @@ module MatildaCore
             user.user_emails.create!(email: payload[:email], primary: true)
           end
         rescue ActiveRecord::RecordNotUnique
-          render_json_fail
+          set_not_saved
         end
 
         set_not_saved unless save_event && user&.update(
