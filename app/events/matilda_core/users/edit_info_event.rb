@@ -9,7 +9,7 @@ module MatildaCore
 
       name_is :matilda_core_users_edit_info
 
-      payload_attributes_are :user_uuid, :name, :surname, :mask_sensitive_data, :log_who, :username, :units_system, :hide_useless_sessions
+      payload_attributes_are :user_uuid, :name, :surname, :mask_sensitive_data, :log_who, :username, :units_system, :hide_useless_sessions, :phone
 
       to_write_event do
         set_not_saved unless save_event && MatildaCore::User.find_by(
@@ -19,6 +19,7 @@ module MatildaCore
           surname: payload[:surname],
           mask_sensitive_data: payload[:mask_sensitive_data],
           username: payload[:username],
+          phone: payload[:phone],
           units_system: payload[:units_system],
           hide_useless_sessions: payload[:hide_useless_sessions]
         )

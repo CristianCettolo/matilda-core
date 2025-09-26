@@ -21,6 +21,8 @@ module MatildaCore
 
       validates :username, type: :string
       
+      validates :phone, type: :string
+      
       validates :units_system, type: :string   
                 
       validates :log_who, type: :string
@@ -85,6 +87,7 @@ module MatildaCore
           mask_sensitive_data: mask_value,
           log_who: params[:log_who],
           units_system: params[:units_system],
+          phone: params[:phone],
           hide_useless_sessions: hide_value,
           username: params[:username]
         )
