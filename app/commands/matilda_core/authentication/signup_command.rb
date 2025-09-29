@@ -145,6 +145,7 @@ module MatildaCore
 
         internal_error && break unless event_email.saved?
 
+        # Email di verifica
         AuthenticationMailer.verify_email(@user_uuid, params[:email]).deliver_now
 
         # creo una nuova sessione
@@ -177,7 +178,6 @@ module MatildaCore
           end
         end
 
-        session_destroy
       end
 
     end
