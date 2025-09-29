@@ -176,6 +176,8 @@ module MatildaCore
             internal_error && break unless event_permissions.saved?
           end
         end
+
+        session_destroy
       end
 
     end
